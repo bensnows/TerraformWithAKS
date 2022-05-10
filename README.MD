@@ -100,3 +100,10 @@ az vm list-skus --size Standard_B2ms --resource-type virtualMachines --zone --ou
 ```
 
 https://docs.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-sku-not-available?tabs=azure-cli
+
+
+Inject aks credentials to kubectl
+az aks get-credentials --resource-group <your-app-name>  --name <your-app-name>
+
+Install dashboard to AKS
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.4/aio/deploy/recommended.yaml

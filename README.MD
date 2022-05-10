@@ -57,3 +57,16 @@ provider "azurerm" {
   subscription_id = "02b1df81-a557-4706-b3b6-e3e1242251e6"
 }
 ```
+
+
+example-2
+due to expose password is dangerous,
+the sensitive = true is necessary while exporting the password
+```tf
+
+output "registry_pw" {
+  value = azurerm_container_registry.container_registry.admin_password
+  sensitive = true 
+}
+
+```

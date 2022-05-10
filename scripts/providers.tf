@@ -17,3 +17,6 @@ provider "azurerm" {
 
   subscription_id = "02b1df81-a557-4706-b3b6-e3e1242251e6"
 }
+provider "tls" {
+    version = "2.1.0"
+}

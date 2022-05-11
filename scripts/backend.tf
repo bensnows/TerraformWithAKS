@@ -3,9 +3,9 @@
 
 terraform {
     backend "azurerm" {
-        resource_group_name  = "flixtube-terraform"
+        resource_group_name  = "flixtube"
         storage_account_name = "testbucketstorage"
-        container_name       = "terraform-state"
+        container_name       = "testbucketstorage"
         key                  = "terraform.tfstate"
     }
 }

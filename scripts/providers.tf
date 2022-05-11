@@ -8,6 +8,13 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=3.0.0"
     }
+    tls = {
+      version = "2.1.0"
+    }
+
+    kubernetes = {
+      version = "1.10.0"
+    }
   }
 }
 
@@ -17,15 +24,15 @@ provider "azurerm" {
 
   subscription_id = "02b1df81-a557-4706-b3b6-e3e1242251e6"
 }
-provider "tls" {
-    version = "2.1.0"
-}
+# provider "tls" {
+#     version = "2.1.0"
+# }
 
 provider "kubernetes" {
-    version = "1.10.0"
-    host = azurerm_kubernetes_cluster.cluster.kube_config[0].host
 
-    client_certificate = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].client_certificate)
-    client_key             = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].client_key)
-    cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].cluster_ca_certificate)
+  host = azurerm_kubernetes_cluster.cluster.kube_config[0].host
+
+  client_certificate     = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].client_certificate)
+  client_key             = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].client_key)
+  cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.cluster.kube_config[0].cluster_ca_certificate)
 }

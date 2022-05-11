@@ -50,7 +50,7 @@ resource "kubernetes_service" "database" {
         }   
 
         port {
-            port         = 27017
+            port        = 27017
         }
 
         type             = "LoadBalancer"

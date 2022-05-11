@@ -7,6 +7,9 @@ Run this example using:
 ```bash
 cd example-1/scripts
 terraform.exe apply -auto-approve #start terraform
+
+terraform apply -var="client_id=<your-client-id>"  -var="client_secret=<your-client-secret>" -auto-approve
+
 terraform.exe destroy #destroy the services built by terraform
 ```
 
